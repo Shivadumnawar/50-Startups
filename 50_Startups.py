@@ -42,8 +42,11 @@ X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_s
 from sklearn.preprocessing import StandardScaler
 ss= StandardScaler()
 
-X_train= ss.fit_transform(X_train)
-X_test= ss.fit_transform(X_test)
+cols= ['R&D Spend', 'Administration', 'Marketing Spend']
+
+X_train[cols]= ss.fit_transform(X_train[cols])
+X_test[cols]= ss.fit_transform(X_test[cols])
+
 
 from sklearn.linear_model import LinearRegression
 reg= LinearRegression()
